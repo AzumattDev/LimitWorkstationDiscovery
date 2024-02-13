@@ -16,7 +16,7 @@ namespace LimitWorkstationDiscovery
     public class LimitWorkstationDiscoveryPlugin : BaseUnityPlugin
     {
         internal const string ModName = "LimitWorkstationDiscovery";
-        internal const string ModVersion = "1.0.0";
+        internal const string ModVersion = "1.0.1";
         internal const string Author = "Azumatt";
         private const string ModGUID = $"{Author}.{ModName}";
         private static string ConfigFileName = $"{ModGUID}.cfg";
@@ -114,6 +114,15 @@ namespace LimitWorkstationDiscovery
         static void Prefix(CraftingStation __instance)
         {
             __instance.m_discoverRange = LimitWorkstationDiscoveryPlugin.DiscoveryRange.Value;
+        }
+    }
+
+    [HarmonyPatch(typeof(Player), nameof(Player.UpdateStations))]
+    static class PlayerUpdateStationsPatch
+    {
+        static void Prefix(Player __instance)
+        {
+            __instance.m_stationDiscoverTimer = 0.0f;
         }
     }
 }
