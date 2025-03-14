@@ -1,6 +1,6 @@
 {
   "name": "LimitWorkstationDiscovery",
-  "version_number": "1.0.2",
+  "version_number": "1.0.3",
   "website_url": "https://github.com/AzumattDev/LimitWorkstationDiscovery",
   "description": "A mod that reduces the discovery radius of workstations to 0 (configurable) so that you have to interact with them to gain the discovery, not just be near them.",
   "dependencies": [
